@@ -36,9 +36,4 @@ function setup() {
   fill('red');
   ellipse(170, 280, 40, 30);
    ellipse(220, 280, 40, 30);
-  
-}
-
-function draw() {
-  circle(mouseX, mouseY);
 }
