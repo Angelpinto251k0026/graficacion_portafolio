@@ -38,5 +38,3 @@ function setup() {
    ellipse(220, 280, 40, 30);
   
 }
-
-function draw() {
