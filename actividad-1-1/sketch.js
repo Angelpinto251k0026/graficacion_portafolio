@@ -23,7 +23,7 @@ function setup() {
   strokeWeight(5);
   line(110, 180, 147, 150);
   line(110, 200, 147, 170);
-  stroke('black')
+  stroke('black');
   fill('grey');
   ellipse(100, 190, 40, 40);
   ellipse(290, 190, 40, 40);
@@ -31,9 +31,9 @@ function setup() {
   circle(170, 50, 25);
   circle(220, 50, 25);
   fill('blue');
-   rect(210, 220, 20, 60);
-   rect(160, 220, 20, 60);
+  rect(210, 220, 20, 60);
+  rect(160, 220, 20, 60);
   fill('red');
   ellipse(170, 280, 40, 30);
-   ellipse(220, 280, 40, 30);
+  ellipse(220, 280, 40, 30);
 }
