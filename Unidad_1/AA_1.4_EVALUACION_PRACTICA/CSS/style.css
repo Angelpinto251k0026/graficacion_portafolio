@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Coche azul</title>
+    <style>
+        body {
+            background: #eeeeee;
+        }
+
+        /* Cuerpo del coche */
+        .coche {
+            position: relative;
+            width: 400px;
+            height: 120px;
+            background: blue;
+            margin: 200px auto;
+            border-radius: 20px;
+        }
+
+        /* Parte superior */
+        .techo {
+            position: absolute;
+            width: 220px;
+            height: 100px;
+            background: blue;
+            top: -80px;
+            left: 90px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        /* Ventanas */
+        .ventana1 {
+            position: absolute;
+            width: 90px;
+            height: 60px;
+            background: lightblue;
+            top: 15px;
+            left: 20px;
+        }
+
+        .ventana2 {
+            position: absolute;
+            width: 90px;
+            height: 60px;
+            background: lightblue;
+            top: 15px;
+            right: 20px;
+        }
+
+        /* Ruedas */
+        .rueda1, .rueda2 {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: black;
+            border-radius: 50%;
+            bottom: -35px;
+        }
+
+        .rueda1 {
+            left: 50px;
+        }
+
+        .rueda2 {
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="coche">
+        <div class="techo">
+            <div class="ventana1"></div>
+            <div class="ventana2"></div>
+        </div>
+        <div class="rueda1"></div>
+        <div class="rueda2"></div>
+    </div>
+</body>
+</html>
