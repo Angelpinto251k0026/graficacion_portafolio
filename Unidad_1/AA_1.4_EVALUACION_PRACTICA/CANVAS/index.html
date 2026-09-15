@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Auto</title>
+</head>
+<body>
+  <!-- Contenedor del lienzo -->
+  <canvas id="miCanvas" width="400" height="400" style="border: 1px solid #000;"></canvas>
+
+  <script>
+    // 1. Obtención del lienzo y contexto 2D (Objeto pincel ctx)
+    const canvas = document.getElementById("miCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // 2. Chasis del auto (Rectángulo principal)
+    ctx.fillStyle = "#ff4da6";
+    ctx.fillRect(100, 200, 200, 80);
+    ctx.lineWidth = 1;
+    ctx.strokeRect(100, 200, 200, 80);
+
+    // 3. Techo del auto
+    ctx.fillStyle = "#ff3399";
+    ctx.fillRect(140, 150, 120, 50);
+    ctx.lineWidth = 1;
+    ctx.strokeRect(140, 150, 120, 50);
+
+    // 4. Ventanas del auto
+    ctx.fillStyle = "#ffe6ff";
+    ctx.fillRect(150, 160, 40, 30);
+    ctx.fillRect(210, 160, 40, 30);
+
+    // 5. Rueda Izquierda (Sistema de rutas con arc)
+    ctx.beginPath();
+    ctx.arc(150, 280, 30, 0, Math.PI * 2);
+    ctx.fillStyle = "#000000";
+    ctx.fill();
+
+    // 6. Rueda Derecha
+    ctx.beginPath();
+    ctx.arc(250, 280, 30, 0, Math.PI * 2);
+    ctx.fillStyle = "#000000";
+    ctx.fill();
+  </script>
+</body>
+</html>
