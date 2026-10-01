@@ -33,14 +33,13 @@ main {
 
 .grid-actividades {
     display: grid;
-    /* Fuerza exactamente 2 tarjetas por fila (2 arriba, 2 abajo) */
-    grid-template-columns: repeat(2, 1fr);
-    /* Amplía el espacio (aire) entre las tarjetas */
-    gap: 2rem; 
+    grid-template-columns: 1fr 1fr; /* Esto fuerza exactamente dos columnas (mitad y mitad) */
+    gap: 2rem;
     margin-top: 1.5rem;
+    width: 100%;
 }
 
-/* Regla para que en celulares se acomode a 1 sola columna y no se rompa el diseño */
+/* Evitamos que en celulares se vea aplastado */
 @media (max-width: 768px) {
     .grid-actividades {
         grid-template-columns: 1fr;
