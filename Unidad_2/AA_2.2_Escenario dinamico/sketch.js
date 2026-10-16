@@ -8,11 +8,19 @@ let separacionX = 0;
 let caidaY = 0;
 let anguloRotacion = 0;
 
-function setup() {
+let logoTec; // Variable para guardar el logo
+
+
+
+// Agrega la palabra "async" antes de function setup()
+async function setup() { 
   createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES); 
   rectMode(CENTER); 
-  alturaNave = windowHeight * 0.85; // Empieza abajo
+  alturaNave = windowHeight * 0.85; 
+
+  // Cargamos el logo aquí usando "await"
+  logoTec = await loadImage('logo.png'); 
 }
 
 function draw() {
@@ -27,6 +35,46 @@ function draw() {
   circle(random(width), random(height), 1);
   circle(random(width), random(height), 3);
   circle(random(width), random(height), 1);
+
+  // 3. LA LUNA CON SU BANDERA
+  push();
+  // Posición de la luna en la pantalla
+  translate(width * 0.8, height * 0.2); 
+  
+  // TAMAÑO DE LA LUNA (puedes cambiar este número para escalar todo junto)
+  scale(1.3); 
+
+  // Dibujo de la Luna
+  fill(220); 
+  circle(0, 0, 100); 
+  
+  // Cráteres
+  fill(180);
+  circle(-20, -15, 20); 
+  circle(15, 20, 30);
+  circle(20, -10, 15);
+
+  // --- LA BANDERA EN LA LUNA ---
+  push();
+  translate(30, -45); // Posición de la bandera en la luna
+  
+  // Asta de la bandera
+  stroke(100);
+  strokeWeight(3);
+  line(0, 10, 0, -40); 
+  
+  // Tela de la bandera
+  noStroke();
+  fill(255);
+  rect(20, -25, 40, 25, 3); 
+  
+  // El logo del Tec dentro de la bandera
+  imageMode(CENTER);
+  image(logoTec, 20, -25, 30, 30); 
+  pop();
+  // -----------------------------
+  
+  pop(); // Cierre de la luna
 
   // --- LÓGICA DE ANIMACIÓN ---
   if (faseDeVuelo == 1) {
@@ -140,14 +188,17 @@ function dibujarCuerpoNave() {
   fill(30, 150, 255);
   ellipse(0, -50, 25, 35);
 
-  // Textos institucionales
-  fill(50);
-  textSize(12);
-  textAlign(CENTER, CENTER);
+  // Textos y Logo institucional (¡Ya corregido!)
   push();
+  imageMode(CENTER);
+  image(logoTec, 0, -10, 40, 40); // Dibuja el logo
+  
+  fill(50);
+  textSize(10);
+  textAlign(CENTER, CENTER);
   rotate(-90); 
-  text("ITSFCP", 0, -5);
-  text("SISTEMAS", 0, 10);
+  text("ITSFCP",-30,0)
+  text("ISC", -30, 15); // Dibuja el texto sin amontonarse
   pop();
 
   // Fuego central
@@ -167,13 +218,12 @@ function dibujarCuerpoNave() {
 
   fill(255, 150, 0); 
   triangle(-15, 0, 15, 0, 0, 50);
-  fill(255, 255, 0); 
-  triangle(-8, 0, 8, 0, 0, 30);
+  fill(250, 250, 0); 
+  triangle(-8,0,8,0,0,30);
   pop();
 
   pop();
 }
-
 function mousePressed() {
   if (faseDeVuelo == 0) {
     faseDeVuelo = 1;
